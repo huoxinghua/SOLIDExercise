@@ -8,6 +8,4 @@ public interface IDamageable
     {
         Debug.Log("take damage");
     }
-
-    
 }

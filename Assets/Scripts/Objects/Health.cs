@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Health : MonoBehaviour,IInteractable
 {
+    [SerializeField] private float healthIncreaseAmount;
     public void Interact()
     {
-        Debug.Log("health");
+       HealthManager.Instance.RestoreHealth(healthIncreaseAmount);
     }
 
 }

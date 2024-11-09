@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour,IDamageable
 {
+    [SerializeField] private float damageValue;
     public void TakeDamage()
     {
-        Debug.Log("take damage");
+        HealthManager.Instance.ReduceHealth(damageValue);
     }
 }
