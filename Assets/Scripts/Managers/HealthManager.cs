@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HealthManager : Singleton<HealthManager>
 {
     [SerializeField] private float maxHealthValue = 50;
-    [SerializeField] private float playerHealth;
-
+    [SerializeField] public float playerHealth;
+    public UnityEvent restoreHealth;
+    public UnityEvent takeDamaged; 
     private void Start()
     {
         playerHealth = maxHealthValue;
@@ -15,10 +17,12 @@ public class HealthManager : Singleton<HealthManager>
     public void ReduceHealth(float value)
     {
         playerHealth -= value;
+        takeDamaged?.Invoke();
         Debug.Log("player current health is:" + playerHealth);
     }
     public void RestoreHealth(float value)
     {
+        restoreHealth?.Invoke();
         playerHealth += value;
         Debug.Log("player current health is:" + playerHealth);
     }
