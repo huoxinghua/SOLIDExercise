@@ -24,15 +24,15 @@ public class HUD : MonoBehaviour
     }
 
     private void OnEnable()
-    {  
+    {
         HealthManager.Instance.takeDamaged.AddListener(UpdateHealthDisplay);
         HealthManager.Instance.restoreHealth.AddListener(UpdateHealthDisplay);
-        ScoreManager.Instance.addScore.AddListener(UpdateCollectDisplay); 
+        ScoreManager.Instance.addScore.AddListener(UpdateCollectDisplay);
     }
     private void OnDisable()
     {
- 
-        HealthManager.Instance.restoreHealth.RemoveAllListeners();
-        ScoreManager.Instance.addScore.RemoveAllListeners();
+        HealthManager.Instance.takeDamaged.RemoveListener(UpdateHealthDisplay);
+        HealthManager.Instance.restoreHealth.RemoveListener(UpdateHealthDisplay);
+        ScoreManager.Instance.addScore.RemoveListener(UpdateCollectDisplay);
     }
 }
