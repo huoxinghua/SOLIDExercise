@@ -32,7 +32,8 @@ public class HUD : MonoBehaviour
     private void OnDisable()
     {
  
-        HealthManager.Instance.restoreHealth.RemoveAllListeners();
-        ScoreManager.Instance.addScore.RemoveAllListeners();
+        HealthManager.Instance.restoreHealth.RemoveListener(UpdateHealthDisplay);
+        HealthManager.Instance.takeDamaged.RemoveListener(UpdateHealthDisplay);
+        ScoreManager.Instance.addScore.RemoveListener(UpdateCollectDisplay);
     }
 }

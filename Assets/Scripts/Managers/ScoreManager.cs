@@ -5,10 +5,11 @@ using UnityEngine.Events;
 
 public class ScoreManager : Singleton<ScoreManager>
 {
-    public float score = 0f;
+    public float score;
     public UnityEvent addScore;
-    private void Start()
+    private void Awake()
     {
+        score = 0f;
         Debug.Log("when start ,Player collect coin is :" + score);
     }
     public void AddScore(float value)
