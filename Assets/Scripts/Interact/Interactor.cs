@@ -19,6 +19,11 @@ public class Interactor : MonoBehaviour
             damageObject.TakeDamage();
         }
     }
+    //private void OnTriggerExit(Collider other)
+    //{
+     
+        
+    //}
 
     void Update()
     {
