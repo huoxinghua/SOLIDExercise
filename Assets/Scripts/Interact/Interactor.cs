@@ -3,6 +3,8 @@ using UnityEngine;
 public class Interactor : MonoBehaviour
 {
     private IInteractable interactableObject = null;
+    private IDamageable damageableObject;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<IInteractable>() != null)
@@ -16,14 +18,26 @@ public class Interactor : MonoBehaviour
         }
         else if (other.TryGetComponent<IDamageable>(out var damageObject))
         {
-            damageObject.TakeDamage();
+
+            if(damageableObject !=null && damageableObject.CanDamage == true)
+            {
+                return;
+            }
+            damageableObject = damageObject;
+
+            damageableObject.CanDamage = true;
+            damageObject.GiveDamage();
+    
         }
     }
-    //private void OnTriggerExit(Collider other)
-    //{
-     
-        
-    //}
+    private void OnTriggerExit(Collider other)
+    {
+        if (damageableObject != null)
+        {
+            damageableObject.CanDamage=false;
+            damageableObject = null;
+        }
+    }
 
     void Update()
     {
