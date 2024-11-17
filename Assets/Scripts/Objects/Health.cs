@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Health : MonoBehaviour,IInteractable
+public class Health : MonoBehaviour, ICollectiable
 {
     [SerializeField] private float healthIncreaseAmount;
-    public void Interact()
+    public void Collect()
     {
-       HealthManager.Instance.RestoreHealth(healthIncreaseAmount);
+        HealthManager.Instance.RestoreHealth(healthIncreaseAmount);
+        Destroy(gameObject);
     }
 
 }

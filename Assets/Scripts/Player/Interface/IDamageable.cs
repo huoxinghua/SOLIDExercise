@@ -4,7 +4,9 @@ using UnityEngine;
 
 public interface IDamageable
 {
-    public void TakeDamage()
+    bool CanDamage { get; set; }
+
+    public void GiveDamage()
     {
         Debug.Log("take damage");
     }
