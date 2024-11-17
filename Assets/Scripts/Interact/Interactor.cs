@@ -4,7 +4,11 @@ public class Interactor : MonoBehaviour
 {
     private IInteractable interactableObject = null;
     private IDamageable damageableObject;
-
+    [SerializeField] GameObject hintText;
+    private void Start()
+    {
+        hintText.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<IInteractable>() != null)
@@ -54,6 +58,7 @@ public class Interactor : MonoBehaviour
     }
     private void ShowInteractKey()
     {
+        hintText.SetActive(true);
         Debug.Log("Press E to interact");
     }
 }

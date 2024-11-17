@@ -10,7 +10,7 @@ public class DoorSwitch : MonoBehaviour, IInteractable
     private Quaternion targetRotation;
     private bool isRotating = false;
     private float rotationTime = 0f;
-
+    
     void Start()
     {
         initialRotation = doorPivot.transform.rotation;
