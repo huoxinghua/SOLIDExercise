@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
-    private IInteractable interactableObject = null;
+    private IInteractable interactableObject;
     private IDamageable damageableObject;
     [SerializeField] GameObject hintText;
     private void Start()
@@ -40,6 +40,10 @@ public class Interactor : MonoBehaviour
         {
             damageableObject.CanDamage=false;
             damageableObject = null;
+        }
+        if (interactableObject != null)
+        {
+            hintText.SetActive(false);
         }
     }
 
