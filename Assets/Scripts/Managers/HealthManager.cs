@@ -9,8 +9,9 @@ public class HealthManager : Singleton<HealthManager>
     [SerializeField] public float playerHealth;
     public UnityEvent restoreHealth;
     public UnityEvent takeDamaged; 
-    public void Start()
+    public void Awake()
     {
+        maxHealthValue = 50;
         playerHealth = maxHealthValue;
         Debug.Log("when start ,Player health is :" + playerHealth);
     }
