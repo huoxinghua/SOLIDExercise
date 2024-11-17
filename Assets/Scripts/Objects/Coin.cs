@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour, ICollectiable
 {
-    [SerializeField] private float scoreValue =2f;
+    [SerializeField] protected float scoreValue =1f;
   
-    public void Collect()
+    public virtual void Collect()
     {
         ScoreManager.Instance.AddScore(scoreValue);
         Destroy(gameObject);
