@@ -23,8 +23,9 @@ public class HealthManager : Singleton<HealthManager>
     }
     public void RestoreHealth(float value)
     {
-        restoreHealth?.Invoke();
         playerHealth += value;
+        restoreHealth?.Invoke();
+       
         Debug.Log("player current health is:" + playerHealth);
     }
 }
